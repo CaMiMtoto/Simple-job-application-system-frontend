@@ -4,6 +4,10 @@ import {changeApplicationStatus, getApplication} from "../../services/applicatio
 import {toast} from "react-toastify";
 import {useParams, useNavigate} from "react-router-dom";
 
+import {DownloadIcon} from "@heroicons/react/outline";
+
+const config = require('../../config');
+
 function Details() {
 
     let params = useParams();
@@ -87,8 +91,10 @@ function Details() {
                     <div className="row">
                         <div className="col-md-6">
                             <strong>
-                                <a href={application.cvUrl} className="btn btn-danger btn-sm" target="_blank">Download
-                                    CV
+                                <a href={`${config.apiUrl}/application/${application.id}/download/cv`}
+                                   className="btn btn-danger tw-font-semibold tw-rounded-lg" target="_blank">
+                                    <DownloadIcon className="tw-h-5 tw-w-5"/>
+                                    Download CV
                                 </a>
                             </strong>
                         </div>

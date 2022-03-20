@@ -2,16 +2,29 @@ import http from "./httpService";
 // import {apiUrl} from "../config.json";
 import jwtDecode from "jwt-decode";
 
+const axios = require('axios');
+const qs = require('qs');
+
 const config = require("../config.json");
 
-const apiEndpoint = config.apiUrl + "/auth";
+const apiEndpoint = config.apiUrl + "/login";
 const tokenKey = 'token';
 
 http.setJwt(getJwt());
 
 export async function login(email, password) {
-    const {data: jwt} = await http.post(apiEndpoint, {email, password});
-    loginWithJwt(jwt);
+
+    const body = qs.stringify({
+        'email': email,
+        'password': password
+    });
+
+    const {data} = await http.post(apiEndpoint, body, {
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+    });
+    loginWithJwt(data.accessToken);
 }
 
 export function loginWithJwt(jwt) {
@@ -40,4 +53,5 @@ let exports = {
     login, logout, getCurrentUser, loginWithJwt, getJwt
 };
 export default exports
+
 

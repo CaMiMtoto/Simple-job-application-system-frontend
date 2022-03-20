@@ -17,9 +17,7 @@ function TopNavNar({user}) {
                         <li className="nav-item">
                             <Link to="/" className="nav-link">Home</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link to="/applications" className="nav-link">Applications</Link>
-                        </li>
+
                         {
                             !user &&
                             <li className="nav-item">
@@ -30,9 +28,12 @@ function TopNavNar({user}) {
                             user &&
                             <React.Fragment>
                                 <li className="nav-item">
-                                    <Link className="nav-link">
-                                        {user.name}
-                                    </Link>
+                                    <Link to="/applications" className="nav-link">Applications</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <span className="nav-link">
+                                        {user.email}
+                                    </span>
                                 </li>
                                 <li className="nav-item">
                                     <Link to="/logout" className="nav-link">

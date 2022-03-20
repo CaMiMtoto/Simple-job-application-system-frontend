@@ -17,7 +17,7 @@ class Home extends Component {
         address: '',
         dateOfBirth: '',
         coverLetter: '',
-        cv: null
+        cvAttachment: null
     };
 
     constructor(props) {
@@ -32,6 +32,17 @@ class Home extends Component {
         // console.log(config.apiUrl);
     }
 
+    // On file select (from the pop up)
+    onFileChange = event => {
+        // Update the state
+        this.setState({
+            formData: {
+                ...this.state.formData,
+                cvAttachment: event.target.files[0]
+            }
+        });
+    };
+
     handleChange(event) {
         const target = event.target;
         const value = target.value;
@@ -45,8 +56,15 @@ class Home extends Component {
         event.preventDefault();
         const {formData} = this.state;
 
+        // Create an object of formData
+        const jsFormData = new FormData();
+        for (let key in formData) {
+            jsFormData.append(key, formData[key]);
+        }
+
         this.setState({isLoading: true});
-        http.post(config.apiUrl + "/application/submit", formData)
+
+        http.post(config.apiUrl + "/application/submit", jsFormData)
             .then(response => {
                 this.setState({isLoading: false});
                 toast.success("Application submitted successfully", {
@@ -77,7 +95,8 @@ class Home extends Component {
                                 Job Application
                             </h1>
                             <p className="lead text-muted">
-                                A simple job application form is used to gather the personal details of a potential applicant for employment.
+                                A simple job application form is used to gather the personal details of a potential
+                                applicant for employment.
                             </p>
                             <p className="tw-space-x-3">
                                 <a href="#jumpTo" className="btn btn-primary my-2 btn-lg">
@@ -158,7 +177,8 @@ class Home extends Component {
                                     <div className="col">
                                         <Form.Group className="mb-3" controlId="c">
                                             <Form.Label>Upload your CV</Form.Label>
-                                            <Form.Control name="cv" type="file"/>
+                                            <input name="cv" className="form-control" onChange={this.onFileChange} accept="application/pdf"
+                                                   type="file"/>
                                         </Form.Group>
                                     </div>
                                 </div>
