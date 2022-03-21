@@ -47,12 +47,12 @@ function Login() {
             <div className="row justify-content-center tw-my-10">
                 <div className="col-md-6 col-lg-5 col-sm-8">
 
-                    <div className="card rounded-3 shadow-sm">
-                        <div className="card-header px-4 py-3 bg-transparent border-bottom-0">
+                    <div className="shadow-sm card rounded-3">
+                        <div className="px-4 py-3 bg-transparent card-header border-bottom-0">
                             <h4>Login</h4>
                             <p className="small">Enter your email and password to login.</p>
                         </div>
-                        <div className="card-body px-4">
+                        <div className="px-4 card-body">
 
                             <Form onSubmit={handleSubmit} autoComplete="off" className="tw-mb-5">
                                 <Form.Group className="mb-3" controlId="formBasicEmail">
