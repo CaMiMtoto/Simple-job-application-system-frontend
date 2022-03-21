@@ -121,7 +121,7 @@ class Home extends Component {
                                         <Form.Group className="mb-3" controlId="firstName">
                                             <Form.Label>First Name</Form.Label>
                                             <Form.Control type="text" value={formData.firstName}
-                                                          onChange={this.handleChange} name="firstName"
+                                                          onChange={this.handleChange} name="firstName" required
                                                           placeholder="First Name"/>
                                         </Form.Group>
                                     </div>
@@ -129,7 +129,7 @@ class Home extends Component {
                                         <Form.Group className="mb-3" controlId="lastName">
                                             <Form.Label>Last Name</Form.Label>
                                             <Form.Control type="text" value={formData.lastName}
-                                                          onChange={this.handleChange} name="lastName"
+                                                          onChange={this.handleChange} name="lastName" required
                                                           placeholder="Last Name"/>
                                         </Form.Group>
                                     </div>
@@ -138,7 +138,7 @@ class Home extends Component {
                                     <div className="col-md-6">
                                         <Form.Group className="mb-3" controlId="phone">
                                             <Form.Label>Phone number</Form.Label>
-                                            <Form.Control type="tel" value={formData.phone} onChange={this.handleChange}
+                                            <Form.Control type="tel" value={formData.phone} onChange={this.handleChange} required
                                                           name="phone"
                                                           placeholder="Phone number"/>
                                         </Form.Group>
@@ -147,7 +147,7 @@ class Home extends Component {
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
                                             <Form.Label>Email address</Form.Label>
                                             <Form.Control type="email" value={formData.email}
-                                                          onChange={this.handleChange} name="email"
+                                                          onChange={this.handleChange} name="email" required
                                                           placeholder="Enter email"/>
                                             <Form.Text className="text-muted">
                                                 We'll never share your email with anyone else.
@@ -160,7 +160,7 @@ class Home extends Component {
                                     <div className="col-md-6">
                                         <Form.Group className="mb-3" controlId="address">
                                             <Form.Label>Address</Form.Label>
-                                            <Form.Control type="text" name="address" value={formData.address}
+                                            <Form.Control type="text" name="address" value={formData.address} required
                                                           onChange={this.handleChange}
                                                           placeholder="Address"/>
                                         </Form.Group>
@@ -168,7 +168,7 @@ class Home extends Component {
                                     <div className="col-md-6">
                                         <Form.Group className="mb-3" controlId="dateOfBirth">
                                             <Form.Label>Date Of Birth</Form.Label>
-                                            <Form.Control type="date" name="dateOfBirth" value={formData.dateOfBirth}
+                                            <Form.Control type="date" name="dateOfBirth" value={formData.dateOfBirth} required
                                                           onChange={this.handleChange} placeholder="Date of Birth"/>
                                         </Form.Group>
                                     </div>
@@ -177,7 +177,7 @@ class Home extends Component {
                                     <div className="col">
                                         <Form.Group className="mb-3" controlId="c">
                                             <Form.Label>Upload your CV</Form.Label>
-                                            <input name="cv" className="form-control" onChange={this.onFileChange} accept="application/pdf"
+                                            <input name="cv" className="form-control" onChange={this.onFileChange} accept="application/pdf" required
                                                    type="file"/>
                                         </Form.Group>
                                     </div>
