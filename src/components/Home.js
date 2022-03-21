@@ -5,7 +5,9 @@ import http from "../services/httpService";
 
 import {toast} from "react-toastify";
 
+
 const config = require("../config.json");
+
 
 class Home extends Component {
 

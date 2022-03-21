@@ -13,7 +13,7 @@ Consider that an applicant wants to submit his / her profile and CV
 * Last, the HR must have option to change the application status (Dropped, Passed)
 
 ## You can find deployed version of this project
-[https://elegant-elion-18eadc.netlify.app/](https://elegant-elion-18eadc.netlify.app/)
+[https://simple-job-application-system-frontend.vercel.app/](https://simple-job-application-system-frontend.vercel.app/)
 
 ### Login credentials as Staff
 * Email: admin@job.com
